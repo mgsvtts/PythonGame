@@ -1,0 +1,2 @@
+def HandleTrade():
+    print("a")
