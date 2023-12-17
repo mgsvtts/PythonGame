@@ -9,5 +9,7 @@ def HandleAction(action):
         HandleTrade()
     elif(action==3):
         PrintStats()
+    elif(action==4):
+        raise Exception("Конец игры")
     else:
         print("Герой так не умеет")

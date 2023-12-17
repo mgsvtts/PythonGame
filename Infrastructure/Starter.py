@@ -1,4 +1,5 @@
-﻿from Infrastructure.Handlers.ActionHandler import HandleAction
+﻿import os
+from Infrastructure.Handlers.ActionHandler import HandleAction
 from Infrastructure.Printer import PrintMenu
 
 def Play():
@@ -6,4 +7,7 @@ def Play():
         while(True):
             HandleAction(PrintMenu())
     except:
+        if os.path.exists("state.json"):
+            os.remove("state.json")
+       
         print("Игра окончена")
