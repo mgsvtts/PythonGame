@@ -49,7 +49,9 @@ def PrintMerchantFound():
     print(f"Привет, я {merchant["name"]}, что бы вы хотели?")
     print("1 - купить")
     print("2 - продать")
-    print("3 - уйти")
+    print("3 - лечение (5 монет за 1 hp)")
+    print("4 - ремонт (2 монеты за 1 броню)")
+    print("5 - уйти")
     return int(input())
 
 def PrintMerchantItems():

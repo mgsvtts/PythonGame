@@ -2,14 +2,15 @@
 from Infrastructure.Handlers.TradeHandler import HandleTrade
 from Infrastructure.Printer import PrintStats
 
+
 def HandleAction(action):
-    if(action == 1):
+    if action == 1:
         HandleAttack()
-    elif(action==2):
+    elif action == 2:
         HandleTrade()
-    elif(action==3):
+    elif action == 3:
         PrintStats()
-    elif(action==4):
+    elif action == 4:
         raise Exception("Конец игры")
     else:
         print("Герой так не умеет")
