@@ -16,6 +16,12 @@ def print_items(items):
         print(f"    урон {item["damage"]}")
         print(f"    защита {item["hp"]}")
 
+def print_healed(healed):
+    print(f"Вы вылечились на {healed} за {healed * 5} монет")
+
+def print_repaired(repaired):
+    print(f"Вы починили снаряжение на {repaired} за {repaired * 2} монет")
+
 def print_stats():
     character = load_state()["character"]
     equipments = load_items(character["items"])

@@ -14,6 +14,8 @@ from Infrastructure.printer import (
     print_merchant_items,
     print_merchant_not_enough_money,
     print_sell_completed,
+    print_healed,
+    print_repaired
 )
 
 
@@ -100,6 +102,7 @@ def handle_heal(character, merchant):
     character["money"] -= needed_heal * 5
     merchant["money"] += needed_heal * 5
 
+    print_healed(needed_heal)
     save_character_state(character)
     save_character_state(merchant)
 
@@ -115,6 +118,7 @@ def handle_repair(character, merchant):
     character["money"] -= needen_armor * 2
     merchant["money"] += needen_armor * 2
 
+    print_repaired(needen_armor)
     save_character_state(character)
     save_character_state(merchant)
 
