@@ -129,7 +129,7 @@ def handle_trade():
     merchant = state["seller"]
 
     choice = 0
-    while choice != 3:
+    while choice != 5:
         choice = print_merchant_found()
         if choice == 1:
             handle_buy(character, merchant)
