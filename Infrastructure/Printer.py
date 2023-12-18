@@ -19,7 +19,7 @@ def print_items(items):
 def print_stats():
     character = load_state()["character"]
     equipments = load_items(character["items"])
-    damage = character["damage"] + Infrastructure.Handlers.AttackHandler.CalculateDamage()
+    damage = character["damage"] + Infrastructure.Handlers.attack_handler.calculate_damage()
 
     print("=" * 30)
     print(f"Ваше имя: {character["name"]} и вы великий воин")
