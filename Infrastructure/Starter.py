@@ -1,12 +1,12 @@
 ﻿import os
-from Infrastructure.Handlers.ActionHandler import HandleAction
-from Infrastructure.Printer import PrintMenu
+from Infrastructure.Handlers.action_handler import handle_action
+from Infrastructure.printer import print_menu
 
 
-def Play():
+def play():
     try:
         while True:
-            HandleAction(PrintMenu())
+            handle_action(print_menu())
     except:
         if os.path.exists("state.json"):
             os.remove("state.json")

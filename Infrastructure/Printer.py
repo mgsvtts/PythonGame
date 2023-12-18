@@ -1,7 +1,7 @@
-﻿from Infrastructure.ConfigLoader import LoadItems, LoadState
+﻿from Infrastructure.config_loader import load_items, load_state
 import Infrastructure
 
-def PrintMenu():
+def print_menu():
     print("1 - ринуться в атаку")
     print("2 - найти ближайшего торговца")
     print("3 - посмотреть на себя красивого")
@@ -9,16 +9,16 @@ def PrintMenu():
     print("Выбери действие: ")
     return int(input())
 
-def PrintItems(items):
+def print_items(items):
     for item in items:
         print(f"- {item["name"]}")
         print(f"    цена {item["cost"]}")
         print(f"    урон {item["damage"]}")
         print(f"    защита {item["hp"]}")
 
-def PrintStats():
-    character = LoadState()["character"]
-    equipments = LoadItems(character["items"])
+def print_stats():
+    character = load_state()["character"]
+    equipments = load_items(character["items"])
     damage = character["damage"] + Infrastructure.Handlers.AttackHandler.CalculateDamage()
 
     print("=" * 30)
@@ -29,23 +29,23 @@ def PrintStats():
     print(f"Урон с надетым снаряжением {damage}")
     print(f"Червонцы {character["money"]}")
     print("Инвентарь:")
-    PrintItems(equipments)
+    print_items(equipments)
     print("=" * 30)
 
-def PrintAlreadyHasItem():
+def print_already_has_item():
     print("У вас уже есть этот предмет")
 
-def PrintCharacterNotEnoughMoney():
+def print_character_not_enough_money():
     print("К сожалению, у тебя не хватает денег")
 
-def PrintMerchantNotEnoughMoney(character):
+def print_merchant_not_enough_money(character):
     print(f"Извини, {character["name"]}, но твой предмет слишком дорогой для меня")
 
-def PrintSellCompleted(character):
+def print_sell_completed(character):
     print(f"Конечно, {character}, я с радостью куплю у тебя это")
 
-def PrintMerchantFound():
-    merchant = LoadState()["seller"]
+def print_merchant_found():
+    merchant = load_state()["seller"]
     print(f"Привет, я {merchant["name"]}, что бы вы хотели?")
     print("1 - купить")
     print("2 - продать")
@@ -54,25 +54,25 @@ def PrintMerchantFound():
     print("5 - уйти")
     return int(input())
 
-def PrintMerchantItems():
-    merchant = LoadState()["seller"]
+def print_merchant_items():
+    merchant = load_state()["seller"]
     print("Конечно, вот что у меня есть (введите название предмета или 'уйти')")
-    PrintItems(LoadItems(merchant["items"]))
+    print_items(load_items(merchant["items"]))
     return input().lower().strip()
 
-def PrintItemsToSell():
-    character = LoadState()["character"]
+def print_items_to_sell():
+    character = load_state()["character"]
     print("Введите название предмета, который вы хотите продать или 'уйти'")
-    PrintItems(LoadItems(character["items"]))
+    print_items(load_items(character["items"]))
     return input().lower().strip()
 
-def PrintEnemyFound(enemy):
+def print_enemy_found(enemy):
     print(f"На пути вам попался {enemy["name"]}")
     
-def PrintDiceResult(dice):
+def print_dice_result(dice):
     print(f"Вам выпало {dice}")
     
-def PrintEnemyAttackResult(enemy, damage):
+def print_enemy_attack_result(enemy, damage):
     if(enemy["hp"]<=0):
         hp = 0
     else:
@@ -82,10 +82,10 @@ def PrintEnemyAttackResult(enemy, damage):
     print(f"У {enemy["name"]} осталось {hp} здоровья")
    
 
-def PrintBuyCompleted(item):
+def print_buy_completed(item):
     print(f"Вы успешно приобрели {item}")
 
-def PrintEnemyDead(character, enemy):
+def print_enemy_dead(character, enemy):
     message = f"{enemy["name"]} не сдержал вашего настиска и помер, "
     
     if(enemy["items"]):
@@ -103,7 +103,7 @@ def PrintEnemyDead(character, enemy):
     
     print(message)
    
-def PrintDamageTaken(character, enemy):
+def print_damage_taken(character, enemy):
     if(character["hp"] <=0):
         hp = 0
     else:
@@ -115,5 +115,5 @@ def PrintDamageTaken(character, enemy):
     
     print(message)
 
-def PrintCharacterDead():
+def print_character_dead():
     print(f"Герой умер")

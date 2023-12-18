@@ -1,7 +1,7 @@
 ﻿import json
-from Infrastructure.ConfigLoader import InitState
-from Infrastructure.Starter import Play
+from Infrastructure.config_loader import init_state
+from Infrastructure.starter import play
 
-InitState()
+init_state()
 
-Play()
+play()
