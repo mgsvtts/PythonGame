@@ -61,7 +61,7 @@ def save_character_state(character):
     save_state(state)
 
 
-def save_character_state(merchant):
+def save_mechant_state(merchant):
     state = get_current_state()
 
     state["seller"] = merchant

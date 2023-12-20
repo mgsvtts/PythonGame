@@ -3,6 +3,7 @@ from Infrastructure.config_loader import (
     load_state,
     save_character_state,
     save_character_state,
+    save_mechant_state,
 )
 from Infrastructure.Handlers.attack_handler import calculate_armor
 from Infrastructure.printer import (
@@ -67,7 +68,7 @@ def handle_buy(character, merchant):
     print_buy_completed(loadedItem["name"])
 
     save_character_state(character)
-    save_character_state(merchant)
+    save_mechant_state(merchant)
 
 
 def handle_sell(character, merchant):
@@ -88,7 +89,7 @@ def handle_sell(character, merchant):
     print_sell_completed(character["name"])
 
     save_character_state(character)
-    save_character_state(merchant)
+    save_mechant_state(merchant)
 
 
 def handle_heal(character, merchant):
@@ -104,7 +105,7 @@ def handle_heal(character, merchant):
 
     print_healed(needed_heal)
     save_character_state(character)
-    save_character_state(merchant)
+    save_mechant_state(merchant)
 
 
 def handle_repair(character, merchant):
@@ -120,7 +121,7 @@ def handle_repair(character, merchant):
 
     print_repaired(needen_armor)
     save_character_state(character)
-    save_character_state(merchant)
+    save_mechant_state(merchant)
 
 
 def handle_trade():
